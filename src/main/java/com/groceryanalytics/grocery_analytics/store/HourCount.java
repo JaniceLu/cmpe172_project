@@ -8,14 +8,26 @@ import javax.persistence.Id;
 public class HourCount {
 
     @Id
-    //@ForeignKey
+	//@ForeignKey
+	private Integer dataid;
 	private Integer sid;
+	private String day;
     private String hour;
     private Integer count;
+	
+	public Integer getDataId()
+	{
+		return dataid;
+	}
 	
 	public Integer getSid()
 	{
 		return sid;
+	}
+
+	public String getDay()
+	{
+		return day;
 	}
 	
 	public String getHour()
@@ -26,6 +38,12 @@ public class HourCount {
 	public Integer getCount()
 	{
 		return count;
+	}
+
+	@Override
+	public String toString()
+	{
+		return String.format("HourCount [id=%d, day=%s, hour=%s, count=%d]", sid, day, hour, count);
 	}
 
 }

@@ -41,4 +41,10 @@ public class StoreInformation {
 		return phone;
 	}
 
+	@Override
+	public String toString()
+	{
+		return String.format("Store[id=%d, name=%s]", sid, name);
+	}
+
 }

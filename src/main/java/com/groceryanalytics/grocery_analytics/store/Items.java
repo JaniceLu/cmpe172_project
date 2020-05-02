@@ -9,6 +9,7 @@ public class Items {
 
     @Id
     //@ForeignKey
+    private Integer dataid;
 	private Integer sid;
     private String name;
     private String category;
@@ -16,8 +17,12 @@ public class Items {
     private Integer stockTotal;
     private Double price;
     private String aisleName;
-    private String pluNum;
-	
+    
+    public Integer getDataId()
+    {
+        return dataid;
+    }
+
 	public Integer getSid()
 	{
 		return sid;
@@ -53,8 +58,9 @@ public class Items {
         return aisleName;
     }
 
-    public String getPluNum()
-    {
-        return pluNum;
-    }
+    @Override
+	public String toString()
+	{
+		return String.format("Items [id=%d, aisle_name=%s, category=%s, name=%s, price=%.2f, stock_num=%d, stock_total=%d]", sid, aisleName, category, name, price, stockNum, stockTotal);
+	}
 }

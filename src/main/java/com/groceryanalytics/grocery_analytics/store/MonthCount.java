@@ -8,12 +8,18 @@ import javax.persistence.Id;
 public class MonthCount {
 
     @Id
-    //@ForeignKey
+	//@ForeignKey
+	private Integer dataid;
 	private Integer sid;
     private String month;
     private Integer year;
     private Integer count;
 	
+	public Integer getDataId()
+	{
+		return dataid;
+	}
+
 	public Integer getSid()
 	{
 		return sid;
@@ -33,5 +39,12 @@ public class MonthCount {
 	{
 		return count;
 	}
+
+	@Override
+	public String toString()
+	{
+		return String.format("MonthCount [id=%d, count=%d, month=%s, year=%d, ]", sid, count, month, year);
+	}
+
 
 }

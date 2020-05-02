@@ -8,11 +8,17 @@ import javax.persistence.Id;
 public class WeekCount {
 
     @Id
-    //@ForeignKey
+	//@ForeignKey
+	private Integer dataid;
 	private Integer sid;
     private String week;
     private Integer count;
 	
+	public Integer getDataId()
+	{
+		return dataid;
+	}
+
 	public Integer getSid()
 	{
 		return sid;
@@ -26,6 +32,12 @@ public class WeekCount {
 	public Integer getCount()
 	{
 		return count;
+	}
+
+	@Override
+	public String toString()
+	{
+		return String.format("WeekCount [id=%d, count=%d, week=%s]", sid, count, week);
 	}
 
 }
