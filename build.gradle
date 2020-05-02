@@ -27,6 +27,7 @@ dependencies {
 	implementation 'org.webjars:jquery:3.5.0'
 	implementation 'org.webjars:jquery-ui:1.12.1'
 	implementation 'org.webjars:popper.js:2.0.2'
+	implementation 'org.webjars.npm:bootstrap-table:1.16.0'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'mysql:mysql-connector-java'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {

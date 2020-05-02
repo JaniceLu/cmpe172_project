@@ -1,15 +1,20 @@
 <!doctype html>
 <html th:fragment="layout (template, menu)">
 <head>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Grocery Analytics</title>
+
     <link rel="shortcut icon" type="image/x-icon" th:href="@{/resources/images/favicon.png}">
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-table/1.16.0/dist/bootstrap-table.min.css}"/>
 
 </head>
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <span class="navbar-brand mb-0 h1">
@@ -36,13 +41,6 @@
         role="button">
         Grocery Store Analytics
     </a>
-    <a 
-        class="btn btn-sm btn-outline-info" 
-        style="text-decoration: none" 
-        th:href="@{/all}" 
-        role="button">
-        TEST DB CONNECTION
-    </a>
   </nav>
 
   <div class="container-fluid">
@@ -59,6 +57,7 @@
   <script th:src="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
   <script th:src="@{/webjars/popper.js/2.0.2/umd/popper.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap-table/1.16.0/dist/bootstrap-table.min.js}"></script>
 
 </body>
 

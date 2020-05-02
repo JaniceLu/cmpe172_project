@@ -2,8 +2,12 @@ package com.groceryanalytics.grocery_analytics.system;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.groceryanalytics.grocery_analytics.store.User;
 import com.groceryanalytics.grocery_analytics.store.UserRepository;
 
@@ -13,7 +17,7 @@ public class FragmentController {
     @Autowired
 
     private UserRepository userRepository;
-    
+
     @GetMapping("items")
     public String getItems() {
         return "items.html";
@@ -24,9 +28,12 @@ public class FragmentController {
         return "hours.html";
     }
 
-    @GetMapping("store")
-    public String getStore() {
+    @RequestMapping(value="/store", method = RequestMethod.GET)
+    public String getStore(Model model) {
+
+        model.addAttribute("users", userRepository.findAll());
         return "store.html";
+
     }
 
     @GetMapping("all")
