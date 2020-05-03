@@ -13,7 +13,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <span class="navbar-brand mb-0 h1">
-        <a style="color: black; text-decoration: none" th:href="@{/}">Grocery Analytics</a>
+      <a style="color: black; text-decoration: none" th:href="@{/}">Grocery Analytics</a>
     </span>
     <a 
         class="btn btn-sm btn-outline-info" 
@@ -21,29 +21,48 @@
         th:href="@{/items}" 
         role="button">
         Item Analytics
-    </a> 
+    </a>     
     <a 
         class="btn btn-sm btn-outline-info" 
         style="text-decoration: none" 
-        th:href="@{/hours/1}" 
+        th:href="@{/hours}" 
         role="button">
         Peak Store Hours
     </a>
     <a 
-        class="btn btn-sm btn-outline-info" 
+        class="btn btn-sm btn-outline-info active" 
         style="text-decoration: none" 
         th:href="@{/store}" 
         role="button">
         Grocery Store Analytics
     </a>
   </nav>
-
   <div class="container-fluid">
       <div class="container xd-container">
-        <br/>
-        Welcome to Grocery Analytics
-        <br/>
-        <br/>
+        <h1>Store Analytics</h1>
+        <table 
+          id="table" 
+          class="table table-striped"
+          data-toggle="table"
+          data-sortable="true"
+          data-sort-class="table-active">
+          <thead>
+            <tr>
+              <th data-sortable="true" data-field="sid">Store ID</th>
+              <th data-sortable="true" data-field="item_restock">Most Restocked Items</th>
+              <th data-sortable="true" data-field="item_wasted">Most Wasted Items</th>
+              <th data-sortable="true" data-field="least_pop_aisle">Least Visited Aisle</th>
+              <th data-sortable="true" data-field="most_pop_aisle">Most Visited Aisle</th>
+            </tr>
+          </thead>
+          <tr th:each="items : ${storeinfo}">
+            <td data-th-text="${items.sid}"></td>
+            <td data-th-text="${items.itemRestock}"></td>
+            <td data-th-text="${items.itemWasted}"></td>
+            <td data-th-text="${items.leastPopAisle}"></td>
+            <td data-th-text="${items.mostPopAisle}"></td>
+          </tr>
+        </table>
       </div>
   </div>
 
@@ -52,7 +71,6 @@
   <script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
   <script th:src="@{/webjars/popper.js/2.0.2/umd/popper.min.js}"></script>
   <script th:src="@{/webjars/bootstrap-table/1.16.0/dist/bootstrap-table.min.js}"></script>
-
 </body>
 
 </html>

@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Grocery Analytics</title>
-    <link rel="shortcut icon" type="image/x-icon" th:href="@{/resources/images/favicon.png}">
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-table/1.16.0/dist/bootstrap-table.min.css}"/>
 
 </head>
 <body>
@@ -25,7 +25,7 @@
     <a 
         class="btn btn-sm btn-outline-info active" 
         style="text-decoration: none" 
-        th:href="@{/hours}" 
+        th:href="@{/hours/1}" 
         role="button">
         Peak Store Hours
     </a>
@@ -39,9 +39,69 @@
   </nav>
   <div class="container-fluid">
       <div class="container xd-container">
-            <p> HOURS PAGE </p>
+        <div class="container">
+          <br/>
+          <br/>
+          <div class="row">
+            <div class="col-sm">
+              This week's visitors at
+            </div>
+            <div class="col-sm" th:text="${store}">
+              current store
+            </div>
+            <div class="col-sm">
+              <a
+                class="btn btn-outline-info" 
+                style="text-decoration: none"
+                th:text="${first}" 
+                th:href="@{/hours/1}" 
+                role="button">
+                Store 1
+              </a>
+            </div>
+            <div class="col-sm">
+              <a 
+                class="btn btn-outline-info" 
+                style="text-decoration: none"
+                th:text="${second}" 
+                th:href="@{/hours/2}" 
+                role="button">
+                Store 2
+              </a>
+            </div>
+            <div class="col-sm">
+              <a 
+                class="btn btn-outline-info" 
+                style="text-decoration: none" 
+                th:text="${third}"
+                th:href="@{/hours/3}" 
+                role="button">
+                Store 3 
+              </a>
+            </div>
+          </div>
+        </div>
         <br/>
-        <br/> 
+        <table 
+          id="table" 
+          class="table table-striped"
+          data-toggle="table"
+          data-sortable="true"
+          data-sort-class="table-active"
+          data-height="460">
+          <thead>
+            <tr>
+              <th data-sortable="true" data-field="day">Date</th>
+              <th data-sortable="true" data-field="hour">Time</th>
+              <th data-sortable="true" data-field="count">Visitor Count</th>
+            </tr>
+          </thead>
+          <tr th:each="items : ${hours}">
+            <td data-th-text="${items.day}"></td>
+            <td data-th-text="${items.hour}"></td>
+            <td data-th-text="${items.count}"></td>
+          </tr>
+        </table>
       </div>
   </div>
 
@@ -49,6 +109,7 @@
   <script th:src="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
   <script th:src="@{/webjars/popper.js/2.0.2/umd/popper.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap-table/1.16.0/dist/bootstrap-table.min.js}"></script>
 
 </body>
 

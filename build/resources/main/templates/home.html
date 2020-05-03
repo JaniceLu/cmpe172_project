@@ -41,9 +41,33 @@
   <div class="container-fluid">
       <div class="container xd-container">
         <br/>
-        Welcome to Grocery Analytics
+        <h1> Welcome to Grocery Analytics </h1>
         <br/>
         <br/>
+        We provide you with up to date store information about these following stores:
+        <br/>
+        <br/>
+        <table 
+          id="table" 
+          class="table table-striped"
+          data-toggle="table"
+          data-sortable="true"
+          data-sort-class="table-active">
+          <thead>
+            <tr>
+                <th data-sortable="true" data-field="name">Store Name</th>
+                <th data-sortable="true" data-field="location">Address</th>
+                <th data-sortable="true" data-field="operating_hours">Store Hours</th>
+                <th data-sortable="true" data-field="phone">Phone Number</th>
+            </tr>
+          </thead>
+          <tr th:each="items : ${storeoverview}">
+          <td data-th-text="${items.name}"></td>
+            <td data-th-text="${items.location}"></td>
+            <td data-th-text="${items.hours}"></td>
+            <td data-th-text="${items.phone}"></td>
+          </tr>
+        </table>
       </div>
   </div>
 
