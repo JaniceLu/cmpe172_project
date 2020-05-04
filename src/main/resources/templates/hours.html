@@ -5,20 +5,19 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Grocery Analytics</title>
+    <title>Grocery Analytics - Hourly Traffic</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap-table/1.16.0/dist/bootstrap-table.min.css}"/>
-
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
     <span class="navbar-brand mb-0 h1">
       <a style="color: black; text-decoration: none" th:href="@{/}">Grocery Analytics</a>
     </span>
     <a 
         class="btn btn-sm btn-outline-info" 
         style="text-decoration: none" 
-        th:href="@{/items}" 
+        th:href="@{/items/1}" 
         role="button">
         Item Analytics
     </a>
@@ -27,7 +26,7 @@
         style="text-decoration: none" 
         th:href="@{/hours/1}" 
         role="button">
-        Peak Store Hours
+        Store Traffic
     </a>
     <a 
         class="btn btn-sm btn-outline-info" 
@@ -38,49 +37,111 @@
     </a>
   </nav>
   <div class="container-fluid">
-      <div class="container xd-container">
-        <div class="container">
+    <div class="row">
+      <nav class="col-md-2 d-md-block d-none bg-light sidebar">
+        <div class="sidebar-sticky">
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              Weekly View
+          </h6>
+          <ul class="nav flex-column">
+              <li class="nav-item">
+                  <a class="nav-link" th:text="${first}" th:href="@{/visitors/weekly/1}">
+                      Store 1
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" th:text="${second}" th:href="@{/visitors/weekly/2}">
+                      Store 2
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" th:text="${third}" th:href="@{/visitors/weekly/3}">
+                      Store 3
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" th:text="${fourth}" th:href="@{/visitors/weekly/4}">
+                      Store 4
+                  </a>
+              </li>
+          </ul>
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              Monthly View
+          </h6>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" th:text="${first}" th:href="@{/visitors/monthly/1}">
+                    Store 1
+                </a>
+            </li>
+              <li class="nav-item">
+                  <a class="nav-link" th:text="${second}" th:href="@{/visitors/monthly/2}">
+                      Store 2
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" th:text="${third}" th:href="@{/visitors/monthly/3}">
+                      Store 3
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" th:text="${fourth}" th:href="@{/visitors/monthly/4}">
+                      Store 4
+                  </a>
+              </li>
+          </ul>
+        </div>
+      </nav>
+      <main class="col-md-9 ml-sm-auto col-lg-10 px-4" role="main">
+        <br/>
+        <div class="row">
+          <div class="col-sm">
+            <h3> Hourly Traffic at 
+              <div th:text="${store}">current store</div>
+            </h3>
+          </div>
           <br/>
-          <br/>
-          <div class="row">
             <div class="col-sm">
-              This week's visitors at
-            </div>
-            <div class="col-sm" th:text="${store}">
-              current store
-            </div>
-            <div class="col-sm">
-              <a
-                class="btn btn-outline-info" 
-                style="text-decoration: none"
-                th:text="${first}" 
-                th:href="@{/hours/1}" 
-                role="button">
+              <div class="btn-group" role="group">
+                <a   
+                  role="button"
+                  class="btn btn-outline-info"
+                  style="text-decoration: none"
+                  th:text="${first}" 
+                  th:href="@{/visitors/hours/1}" 
+                >
                 Store 1
-              </a>
-            </div>
-            <div class="col-sm">
-              <a 
-                class="btn btn-outline-info" 
-                style="text-decoration: none"
-                th:text="${second}" 
-                th:href="@{/hours/2}" 
-                role="button">
+                </a>
+                <a 
+                  role="button" 
+                  class="btn btn-outline-info"
+                  style="text-decoration: none"
+                  th:text="${second}" 
+                  th:href="@{/visitors/hours/2}" 
+                >
                 Store 2
-              </a>
-            </div>
-            <div class="col-sm">
-              <a 
-                class="btn btn-outline-info" 
-                style="text-decoration: none" 
-                th:text="${third}"
-                th:href="@{/hours/3}" 
-                role="button">
-                Store 3 
-              </a>
+                </a>
+                <a 
+                  role="button" 
+                  class="btn btn-outline-info"
+                  style="text-decoration: none"
+                  th:text="${third}" 
+                  th:href="@{/visitors/hours/3}" 
+                >
+                Store 3
+                </a>
+                <a 
+                  role="button" 
+                  class="btn btn-outline-info"
+                  style="text-decoration: none"
+                  th:text="${fourth}" 
+                  th:href="@{/visitors/hours/4}" 
+                >
+                Store 4
+                </a>
+              </div>
             </div>
           </div>
-        </div>
         <br/>
         <table 
           id="table" 
@@ -102,13 +163,14 @@
             <td data-th-text="${items.count}"></td>
           </tr>
         </table>
-      </div>
+      </main>
+    </div>
   </div>
 
   <script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}"></script>
   <script th:src="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
-  <script th:src="@{/webjars/popper.js/2.0.2/umd/popper.min.js}"></script>
+  <script th:src="@{/webjars/popperjs__core/2.4.0/dist/umd/popper.min.js}"></script>
   <script th:src="@{/webjars/bootstrap-table/1.16.0/dist/bootstrap-table.min.js}"></script>
 
 </body>

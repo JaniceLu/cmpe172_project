@@ -18,16 +18,16 @@
     <a 
         class="btn btn-sm btn-outline-info active" 
         style="text-decoration: none" 
-        th:href="@{/items}" 
+        th:href="@{/items/1}" 
         role="button">
         Item Analytics
     </a>
     <a 
         class="btn btn-sm btn-outline-info" 
         style="text-decoration: none" 
-        th:href="@{/hours/1}" 
+        th:href="@{visitors/hours/1}" 
         role="button">
-        Peak Store Hours
+        Store Traffic
     </a>    
     <a 
         class="btn btn-sm btn-outline-info" 
@@ -38,18 +38,77 @@
     </a>
   </nav>
   <div class="container-fluid">
-      <div class="container xd-container">
-            <p> ITEMS PAGE </p>
-        <br/>
-        <br/> 
-      </div>
+    <h3> Items Page </h3>
+    <br/>
+    <div class="btn-group" role="group">
+        <a
+            class="btn btn-outline-info" 
+            style="text-decoration: none"
+            th:text="${first}" 
+            th:href="@{/items/1}" 
+            role="button">
+            Store 1
+        </a>            
+        <a 
+            class="btn btn-outline-info" 
+            style="text-decoration: none"
+            th:text="${second}" 
+            th:href="@{/items/2}" 
+            role="button">
+            Store 2
+        </a>
+        <a 
+            class="btn btn-outline-info" 
+            style="text-decoration: none" 
+            th:text="${third}"
+            th:href="@{/items/3}" 
+            role="button">
+            Store 3 
+        </a>
+        <a 
+            class="btn btn-outline-info" 
+            style="text-decoration: none" 
+            th:text="${fourth}"
+            th:href="@{/items/4}" 
+            role="button">
+            Store 4 
+        </a>
+    </div>
+    <br/>
+    <table 
+      id="table" 
+      class="table table-striped"
+      data-toggle="table"
+      data-sortable="true"
+      data-sort-class="table-active"
+      data-height="460">
+      <thead>
+          <tr>
+            <th data-sortable="true" data-field="sid">Item PLU</th>
+            <th data-sortable="true" data-field="month">Aisle</th>
+            <th data-sortable="true" data-field="count">Category</th>
+            <th data-sortable="true" data-field="month">Item Name</th>
+            <th data-sortable="true" data-field="month">Price</th>
+            <th data-sortable="true" data-field="month">Initial Stock</th>
+            <th data-sortable="true" data-field="month">Stock Remaining</th>
+          </tr>
+      </thead>
+      <tr th:each="items : ${store}">
+          <td data-th-text="${items.sid}"></td>
+          <td data-th-text="${items.aisleName}"></td>
+          <td data-th-text="${items.category}"></td>
+          <td data-th-text="${items.name}"></td>
+          <td data-th-text="${items.price}"></td>
+          <td data-th-text="${items.stockTotal}"></td>
+          <td data-th-text="${items.stockNum}"></td>
+      </tr>
+    </table>
   </div>
 
   <script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}"></script>
   <script th:src="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
-  <script th:src="@{/webjars/popper.js/2.0.2/umd/popper.min.js}"></script>
-
+  <script th:src="@{/webjars/bootstrap-table/1.16.0/dist/bootstrap-table.min.js}"></script>
 </body>
 
 </html>
