@@ -8,7 +8,7 @@
     <title>Grocery Analytics</title>
     <link rel="shortcut icon" type="image/x-icon" th:href="@{/resources/images/favicon.png}">
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}"/>
-
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-table/1.16.0/dist/bootstrap-table.min.css}"/>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -18,14 +18,14 @@
     <a 
         class="btn btn-sm btn-outline-info active" 
         style="text-decoration: none" 
-        th:href="@{/items}" 
+        th:href="@{/items/1}" 
         role="button">
         Item Analytics
     </a>
     <a 
         class="btn btn-sm btn-outline-info" 
         style="text-decoration: none" 
-        th:href="@{visitors/hours/1}" 
+        th:href="@{/visitors/hours/1}" 
         role="button">
         Store Traffic
     </a>    
@@ -38,10 +38,39 @@
     </a>
   </nav>
   <div class="container-fluid">
-      <div class="container xd-container">
-            <p> ITEMS PAGE </p>
-        <br/>
-        <br/> 
+    <div class="row">
+      <nav class="col-md-2 d-md-block d-none bg-light sidebar">
+        <div class="sidebar-sticky">
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              Stores
+          </h6>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" th:text="${first}" th:href="@{/items/1}">
+                    Store 1
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:text="${second}" th:href="@{/items/2}">
+                    Store 2
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:text="${third}" th:href="@{/items/3}">
+                    Store 3
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:text="${fourth}" th:href="@{/items/4}">
+                    Store 4
+                </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <main class="col-md-9 ml-sm-auto col-lg-10 px-4" role="main">
+        <h3> Items Page -&nbsp;<div th:text="${name}"></div></h3>
+
         <table 
           id="table" 
           class="table table-striped"
@@ -51,17 +80,15 @@
           data-height="460">
           <thead>
               <tr>
-                <th data-sortable="true" data-field="sid">Item PLU</th>
-                <th data-sortable="true" data-field="month">Aisle</th>
-                <th data-sortable="true" data-field="count">Category</th>
-                <th data-sortable="true" data-field="month">Item Name</th>
-                <th data-sortable="true" data-field="month">Price</th>
-                <th data-sortable="true" data-field="month">Initial Stock</th>
-                <th data-sortable="true" data-field="month">Stock Remaining</th>
+                <th data-sortable="true" data-field="aisleName">Aisle</th>
+                <th data-sortable="true" data-field="category">Category</th>
+                <th data-sortable="true" data-field="name">Item Name</th>
+                <th data-sortable="true" data-field="price">Price</th>
+                <th data-sortable="true" data-field="stockTotal">Initial Stock</th>
+                <th data-sortable="true" data-field="stockNum">Stock Remaining</th>
               </tr>
           </thead>
           <tr th:each="items : ${store}">
-              <td data-th-text="${items.sid}"></td>
               <td data-th-text="${items.aisleName}"></td>
               <td data-th-text="${items.category}"></td>
               <td data-th-text="${items.name}"></td>
@@ -70,7 +97,8 @@
               <td data-th-text="${items.stockNum}"></td>
           </tr>
         </table>
-      </div>
+      </main>
+    </div>
   </div>
 
   <script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}"></script>

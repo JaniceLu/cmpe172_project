@@ -1,14 +1,12 @@
 package com.groceryanalytics.grocery_analytics.store;
 
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
 import javax.persistence.Id;
 
 @Entity
 public class Analytics {
 
     @Id
-    //@ForeignKey
 	private Integer sid;
     private String mostPopAisle;
     private String leastPopAisle;

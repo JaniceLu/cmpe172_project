@@ -25,7 +25,7 @@
         <a 
             class="btn btn-sm btn-outline-info active" 
             style="text-decoration: none" 
-            th:href="@{/hours/1}" 
+            th:href="@{/visitors/hours/1}" 
             role="button">
             Store Traffic
         </a>
@@ -91,6 +91,31 @@
                             </a>
                         </li>
                     </ul>
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        Monthly View
+                    </h6>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" th:text="${first}" th:href="@{/visitors/monthly/1}">
+                                Store 1
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:text="${second}" th:href="@{/visitors/monthly/2}">
+                                Store 2
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:text="${third}" th:href="@{/visitors/monthly/3}">
+                                Store 3
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:text="${fourth}" th:href="@{/visitors/monthly/4}">
+                                Store 4
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </nav>
             <main class="col-md-9 ml-sm-auto col-lg-10 px-4" role="main">
@@ -102,42 +127,6 @@
                                 current store 
                             </div>
                         <h3>
-                    </div>
-                    <div class="col-sm">
-                        <div class="btn-group" role="group">
-                            <a
-                                class="btn btn-outline-info" 
-                                style="text-decoration: none"
-                                th:text="${first}" 
-                                th:href="@{/visitors/monthly/1}" 
-                                role="button">
-                                Store 1
-                            </a>            
-                            <a 
-                                class="btn btn-outline-info" 
-                                style="text-decoration: none"
-                                th:text="${second}" 
-                                th:href="@{/visitors/monthly/2}" 
-                                role="button">
-                                Store 2
-                            </a>
-                            <a 
-                                class="btn btn-outline-info" 
-                                style="text-decoration: none" 
-                                th:text="${third}"
-                                th:href="@{/visitors/monthly/3}" 
-                                role="button">
-                                Store 3 
-                            </a>
-                            <a 
-                                class="btn btn-outline-info" 
-                                style="text-decoration: none" 
-                                th:text="${fourth}"
-                                th:href="@{/visitors/monthly/4}" 
-                                role="button">
-                                Store 4 
-                            </a>
-                        </div>
                     </div>
                 </div>
                 <br/>

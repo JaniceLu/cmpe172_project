@@ -8,17 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.groceryanalytics.grocery_analytics.store.StoreInformation;
+
 import com.groceryanalytics.grocery_analytics.store.StoreInformationRepository;
-import com.groceryanalytics.grocery_analytics.store.UserRepository;
 import com.groceryanalytics.grocery_analytics.store.AnalyticsRepository;
-import com.groceryanalytics.grocery_analytics.store.HourCount;
 import com.groceryanalytics.grocery_analytics.store.HourCountRepository;
-
-import com.groceryanalytics.grocery_analytics.store.WeekCount;
 import com.groceryanalytics.grocery_analytics.store.WeekCountRepository;
-
-import com.groceryanalytics.grocery_analytics.store.MonthCount;
 import com.groceryanalytics.grocery_analytics.store.MonthCountRepository;
 
 import com.groceryanalytics.grocery_analytics.store.Items;
@@ -55,33 +49,49 @@ public class FragmentController {
 
     @RequestMapping(value = "/items/1", method = RequestMethod.GET)
     public String getItems1(Model model) {
+        model.addAttribute("name", storeRepository.findBySid(1));
         model.addAttribute("first", storeRepository.findBySid(1));
+        model.addAttribute("second", storeRepository.findBySid(2));
+        model.addAttribute("third", storeRepository.findBySid(3));
+        model.addAttribute("fourth", storeRepository.findBySid(4));
         model.addAttribute("store", itemsRepository.findBySid(1));
         return "items.html";
     }
 
     @RequestMapping(value = "/items/2", method = RequestMethod.GET)
     public String getItems2(Model model) {
+        model.addAttribute("name", storeRepository.findBySid(2));
+        model.addAttribute("first", storeRepository.findBySid(1));
         model.addAttribute("second", storeRepository.findBySid(2));
+        model.addAttribute("third", storeRepository.findBySid(3));
+        model.addAttribute("fourth", storeRepository.findBySid(4));
         model.addAttribute("store", itemsRepository.findBySid(2));
         return "items.html";
     }
 
     @RequestMapping(value = "/items/3", method = RequestMethod.GET)
     public String getItems3(Model model) {
+        model.addAttribute("name", storeRepository.findBySid(3));
+        model.addAttribute("first", storeRepository.findBySid(1));
+        model.addAttribute("second", storeRepository.findBySid(2));
         model.addAttribute("third", storeRepository.findBySid(3));
+        model.addAttribute("fourth", storeRepository.findBySid(4));
         model.addAttribute("store", itemsRepository.findBySid(3));
         return "items.html";
     }
 
     @RequestMapping(value = "/items/4", method = RequestMethod.GET)
     public String getItems4(Model model) {
+        model.addAttribute("name", storeRepository.findBySid(4));
+        model.addAttribute("first", storeRepository.findBySid(1));
+        model.addAttribute("second", storeRepository.findBySid(2));
+        model.addAttribute("third", storeRepository.findBySid(3));
         model.addAttribute("fourth", storeRepository.findBySid(4));
         model.addAttribute("store", itemsRepository.findBySid(4));
         return "items.html";
     }
 
-    @RequestMapping(value = "visitors/hours/1", method = RequestMethod.GET)
+    @RequestMapping(value = "/visitors/hours/1", method = RequestMethod.GET)
     public String getHoursID1(Model model) {
         model.addAttribute("store", storeRepository.findBySid(1));
         model.addAttribute("first", storeRepository.findBySid(1));
@@ -92,7 +102,7 @@ public class FragmentController {
         return "hours.html";
     }
 
-    @RequestMapping(value = "visitors/hours/2", method = RequestMethod.GET)
+    @RequestMapping(value = "/visitors/hours/2", method = RequestMethod.GET)
     public String getHoursID2(Model model) {
         model.addAttribute("store", storeRepository.findBySid(2));
         model.addAttribute("first", storeRepository.findBySid(1));
@@ -103,7 +113,7 @@ public class FragmentController {
         return "hours.html";
     }
 
-    @RequestMapping(value = "visitors/hours/3", method = RequestMethod.GET)
+    @RequestMapping(value = "/visitors/hours/3", method = RequestMethod.GET)
     public String getHoursID3(Model model) {
         model.addAttribute("store", storeRepository.findBySid(3));
         model.addAttribute("first", storeRepository.findBySid(1));
@@ -114,7 +124,7 @@ public class FragmentController {
         return "hours.html";
     }
 
-    @RequestMapping(value = "visitors/hours/4", method = RequestMethod.GET)
+    @RequestMapping(value = "/visitors/hours/4", method = RequestMethod.GET)
     public String getHoursID4(Model model) {
         model.addAttribute("store", storeRepository.findBySid(4));
         model.addAttribute("first", storeRepository.findBySid(1));
@@ -125,7 +135,7 @@ public class FragmentController {
         return "hours.html";
     }
 
-    @RequestMapping(value = "visitors/weekly/1", method = RequestMethod.GET)
+    @RequestMapping(value = "/visitors/weekly/1", method = RequestMethod.GET)
     public String getWeeklyID1(Model model) {
         model.addAttribute("store", storeRepository.findBySid(1));
         model.addAttribute("first", storeRepository.findBySid(1));
@@ -136,7 +146,7 @@ public class FragmentController {
         return "weekly.html";
     }
 
-    @RequestMapping(value = "visitors/weekly/2", method = RequestMethod.GET)
+    @RequestMapping(value = "/visitors/weekly/2", method = RequestMethod.GET)
     public String getWeeklyID2(Model model) {
         model.addAttribute("store", storeRepository.findBySid(2));
         model.addAttribute("first", storeRepository.findBySid(1));
@@ -147,7 +157,7 @@ public class FragmentController {
         return "weekly.html";
     }
 
-    @RequestMapping(value = "visitors/weekly/3", method = RequestMethod.GET)
+    @RequestMapping(value = "/visitors/weekly/3", method = RequestMethod.GET)
     public String getWeeklyID3(Model model) {
         model.addAttribute("store", storeRepository.findBySid(3));
         model.addAttribute("first", storeRepository.findBySid(1));
@@ -158,7 +168,7 @@ public class FragmentController {
         return "weekly.html";
     }
 
-    @RequestMapping(value = "visitors/weekly/4", method = RequestMethod.GET)
+    @RequestMapping(value = "/visitors/weekly/4", method = RequestMethod.GET)
     public String getWeeklyID4(Model model) {
         model.addAttribute("store", storeRepository.findBySid(4));
         model.addAttribute("first", storeRepository.findBySid(1));
@@ -170,7 +180,7 @@ public class FragmentController {
     }
 
 
-    @RequestMapping(value = "visitors/monthly/1", method = RequestMethod.GET)
+    @RequestMapping(value = "/visitors/monthly/1", method = RequestMethod.GET)
     public String getMonthlyID1(Model model) {
         model.addAttribute("store", storeRepository.findBySid(1));
         model.addAttribute("first", storeRepository.findBySid(1));
@@ -181,7 +191,7 @@ public class FragmentController {
         return "monthly.html";
     }
 
-    @RequestMapping(value = "visitors/monthly/2", method = RequestMethod.GET)
+    @RequestMapping(value = "/visitors/monthly/2", method = RequestMethod.GET)
     public String getMonthlyID2(Model model) {
         model.addAttribute("store", storeRepository.findBySid(2));
         model.addAttribute("first", storeRepository.findBySid(1));
@@ -192,7 +202,7 @@ public class FragmentController {
         return "monthly.html";
     }
 
-    @RequestMapping(value = "visitors/monthly/3", method = RequestMethod.GET)
+    @RequestMapping(value = "/visitors/monthly/3", method = RequestMethod.GET)
     public String geMonthlyID3(Model model) {
         model.addAttribute("store", storeRepository.findBySid(3));
         model.addAttribute("first", storeRepository.findBySid(1));
@@ -203,7 +213,7 @@ public class FragmentController {
         return "monthly.html";
     }
 
-    @RequestMapping(value = "visitors/monthly/4", method = RequestMethod.GET)
+    @RequestMapping(value = "/visitors/monthly/4", method = RequestMethod.GET)
     public String geMonthlyID4(Model model) {
         model.addAttribute("store", storeRepository.findBySid(4));
         model.addAttribute("first", storeRepository.findBySid(1));

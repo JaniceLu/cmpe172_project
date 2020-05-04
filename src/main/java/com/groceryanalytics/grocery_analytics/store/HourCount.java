@@ -1,14 +1,12 @@
 package com.groceryanalytics.grocery_analytics.store;
 
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
 import javax.persistence.Id;
 
 @Entity
 public class HourCount {
 
     @Id
-	//@ForeignKey
 	private Integer dataid;
 	private Integer sid;
 	private String day;

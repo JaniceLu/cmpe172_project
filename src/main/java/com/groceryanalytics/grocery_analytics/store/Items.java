@@ -1,14 +1,12 @@
 package com.groceryanalytics.grocery_analytics.store;
 
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
 import javax.persistence.Id;
 
 @Entity
 public class Items {
 
     @Id
-    //@ForeignKey
     private Integer dataid;
 	private Integer sid;
     private String name;
@@ -61,6 +59,6 @@ public class Items {
     @Override
 	public String toString()
 	{
-		return String.format("Items [id=%d, aisle_name=%s, category=%s, name=%s, price=%.2f, stock_num=%d, stock_total=%d]", sid, aisleName, category, name, price, stockNum, stockTotal);
+		return String.format("%s", name);
 	}
 }

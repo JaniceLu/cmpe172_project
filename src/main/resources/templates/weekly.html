@@ -5,10 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Grocery Analytics</title>
+    <title>Grocery Analytics - Weekly Traffic</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap-table/1.16.0/dist/bootstrap-table.min.css}"/>
-
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
@@ -25,7 +24,7 @@
         <a 
             class="btn btn-sm btn-outline-info active" 
             style="text-decoration: none" 
-            th:href="@{/hours/1}" 
+            th:href="@{/visitors/hours/1}" 
             role="button">
            Store Traffic
         </a>
@@ -67,6 +66,31 @@
                         </li>
                     </ul>
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        Weekly View
+                    </h6>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" th:text="${first}" th:href="@{/visitors/weekly/1}">
+                                Store 1
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:text="${second}" th:href="@{/visitors/weekly/2}">
+                                Store 2
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:text="${third}" th:href="@{/visitors/weekly/3}">
+                                Store 3
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:text="${fourth}" th:href="@{/visitors/weekly/4}">
+                                Store 4
+                            </a>
+                        </li>
+                    </ul>
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                         Monthly View
                     </h6>
                     <ul class="nav flex-column">
@@ -101,42 +125,6 @@
                             <div th:text="${store}">current store</div>
                         </h3>
                     </div>
-                    <div class="col-sm">
-                        <div class="btn-group" role="group">
-                            <a
-                                class="btn btn-outline-info" 
-                                style="text-decoration: none"
-                                th:text="${first}" 
-                                th:href="@{/visitors/weekly/1}" 
-                                role="button">
-                                Store 1
-                            </a>            
-                            <a 
-                                class="btn btn-outline-info" 
-                                style="text-decoration: none"
-                                th:text="${second}" 
-                                th:href="@{/visitors/weekly/2}" 
-                                role="button">
-                                Store 2
-                            </a>
-                            <a 
-                                class="btn btn-outline-info" 
-                                style="text-decoration: none" 
-                                th:text="${third}"
-                                th:href="@{/visitors/weekly/3}" 
-                                role="button">
-                                Store 3 
-                            </a>
-                            <a 
-                                class="btn btn-outline-info" 
-                                style="text-decoration: none" 
-                                th:text="${fourth}"
-                                th:href="@{/visitors/weekly/4}" 
-                                role="button">
-                                Store 4 
-                            </a>
-                        </div>
-                    </div>
                 </div>
                 <br/>
                 <table 
@@ -145,7 +133,7 @@
                 data-toggle="table"
                 data-sortable="true"
                 data-sort-class="table-active"
-                data-height="460">
+                data-height="500">
                 <thead>
                     <tr>
                     <th data-sortable="true" data-field="week">Week</th>
@@ -166,7 +154,6 @@
   <script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
   <script th:src="@{/webjars/popper.js/2.0.2/umd/popper.min.js}"></script>
   <script th:src="@{/webjars/bootstrap-table/1.16.0/dist/bootstrap-table.min.js}"></script>
-
 </body>
 
 </html>

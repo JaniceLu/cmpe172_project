@@ -27,8 +27,9 @@ dependencies {
 	implementation 'org.webjars:jquery:3.5.0'
 	implementation 'org.webjars:jquery-ui:1.12.1'
 	implementation 'org.webjars.npm:popperjs__core:2.4.0'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	implementation 'org.webjars.npm:bootstrap-table:1.16.0'
+	implementation 'org.webjars.npm:chart.js:2.9.3'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'mysql:mysql-connector-java'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
