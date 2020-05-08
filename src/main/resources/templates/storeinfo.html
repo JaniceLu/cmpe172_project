@@ -1,0 +1,76 @@
+<!doctype html>
+<html th:fragment="layout (template, menu)">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grocery Analytics</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-table/1.16.0/dist/bootstrap-table.min.css}"/>
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">
+      <a style="color: black; text-decoration: none" th:href="@{/}">Grocery Analytics</a>
+    </span>
+    <a 
+        class="btn btn-sm btn-outline-info" 
+        style="text-decoration: none" 
+        th:href="@{/items/1}" 
+        role="button">
+        Item Analytics
+    </a>     
+    <a 
+        class="btn btn-sm btn-outline-info" 
+        style="text-decoration: none" 
+        th:href="@{/visitors/hours/1}" 
+        role="button">
+        Store Traffic
+    </a>
+    <a 
+        class="btn btn-sm btn-outline-info active" 
+        style="text-decoration: none" 
+        th:href="@{/store}" 
+        role="button">
+        Grocery Store Analytics
+    </a>
+  </nav>
+  <div class="container-fluid">
+      <div class="container xd-container">
+        <h1>Store Analytics</h1>
+        <table 
+          id="table" 
+          class="table table-striped"
+          data-toggle="table"
+          data-sortable="true"
+          data-sort-class="table-active">
+          <thead>
+            <tr>
+              <th data-sortable="true" data-field="sid">Store ID</th>
+              <th data-sortable="true" data-field="item_restock">Most Restocked Items</th>
+              <th data-sortable="true" data-field="item_wasted">Most Wasted Items</th>
+              <th data-sortable="true" data-field="least_pop_aisle">Least Visited Aisle</th>
+              <th data-sortable="true" data-field="most_pop_aisle">Most Visited Aisle</th>
+            </tr>
+          </thead>
+          <tr th:each="items : ${storeinfo}">
+            <td data-th-text="${items.sid}"></td>
+            <td data-th-text="${items.itemRestock}"></td>
+            <td data-th-text="${items.itemWasted}"></td>
+            <td data-th-text="${items.leastPopAisle}"></td>
+            <td data-th-text="${items.mostPopAisle}"></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+
+  <script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}"></script>
+  <script th:src="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+  <script th:src="@{/webjars/popperjs__core/2.4.0/dist/umd/popper.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap-table/1.16.0/dist/bootstrap-table.min.js}"></script>
+</body>
+
+</html>

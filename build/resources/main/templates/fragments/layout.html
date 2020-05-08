@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Grocery Analytics</title>
-    <link rel="shortcut icon" type="image/x-icon" th:href="@{/resources/images/favicon.png}">
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-table/1.16.0/dist/bootstrap-table.min.css}"/>
 
 </head>
 <body>
@@ -18,16 +18,16 @@
     <a 
         class="btn btn-sm btn-outline-info" 
         style="text-decoration: none" 
-        th:href="@{/items}" 
+        th:href="@{/items/1}" 
         role="button">
         Item Analytics
     </a> 
     <a 
         class="btn btn-sm btn-outline-info" 
         style="text-decoration: none" 
-        th:href="@{/hours}" 
+        th:href="@{/visitors/hours/1}" 
         role="button">
-        Peak Store Hours
+        Store Traffic
     </a>
     <a 
         class="btn btn-sm btn-outline-info" 
@@ -36,20 +36,12 @@
         role="button">
         Grocery Store Analytics
     </a>
-    <a 
-        class="btn btn-sm btn-outline-info" 
-        style="text-decoration: none" 
-        th:href="@{/all}" 
-        role="button">
-        TEST DB CONNECTION
-    </a>
   </nav>
 
   <div class="container-fluid">
       <div class="container xd-container">
-
-          WELCOME TO GROCERY ANALYTICS
-
+        <br/>
+        Welcome to Grocery Analytics
         <br/>
         <br/>
       </div>
@@ -58,7 +50,8 @@
   <script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}"></script>
   <script th:src="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
-  <script th:src="@{/webjars/popper.js/2.0.2/umd/popper.min.js}"></script>
+  <script th:src="@{/webjars/popperjs__core/2.4.0/dist/umd/popper.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap-table/1.16.0/dist/bootstrap-table.min.js}"></script>
 
 </body>
 
