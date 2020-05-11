@@ -12,22 +12,22 @@ Grocery Analytics takes your valuable customer and store data and creates meanin
 Screenshots
 ---
 **Home Screen**
-![alt text](https://github.com/JaniceLu/cmpe172_project/tree/master/resources/cmpe172github1.png "Home Screen")
+<img src= "https://github.com/JaniceLu/cmpe172_project/tree/master/resources/cmpe172github1.png" width="200" height="200"/>
 
 **Item Analytics Screen**
-![alt text](https://github.com/JaniceLu/cmpe172_project/tree/master/resources/cmpe172github1.png "Items Analytics")
+<img src= "https://github.com/JaniceLu/cmpe172_project/tree/master/resources/cmpe172github2.png" width="200" height="200"/>
 
 **Store Traffic Screen - Hourly**
-![alt text](https://github.com/JaniceLu/cmpe172_project/tree/master/resources/cmpe172github1.png "Hourly View Screen")
+<img src= "https://github.com/JaniceLu/cmpe172_project/tree/master/resources/cmpe172github3.png" width="200" height="200"/>
 
 **Store Traffic Screen - Weekly**
-![alt text](https://github.com/JaniceLu/cmpe172_project/tree/master/resources/cmpe172github1.png "Weekly View Screen")
+<img src= "https://github.com/JaniceLu/cmpe172_project/tree/master/resources/cmpe172github4.png" width="200" height="200"/>
 
 **Store Traffic Screen - Monthly**
-![alt text](https://github.com/JaniceLu/cmpe172_project/tree/master/resources/cmpe172github1.png "Monthly View Screen")
+<img src= "https://github.com/JaniceLu/cmpe172_project/tree/master/resources/cmpe172github5.png" width="200" height="200"/>
 
 **Store Analytics Screen**
-![alt text](https://github.com/JaniceLu/cmpe172_project/tree/master/resources/cmpe172github1.png "Store Analytics Screen")
+<img src= "https://github.com/JaniceLu/cmpe172_project/tree/master/resources/cmpe172github6.png" width="200" height="200"/>
 
 License
 ----
