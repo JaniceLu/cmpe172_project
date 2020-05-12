@@ -110,7 +110,7 @@ Navigate to the folder that you cloned the project into then run this command:
 
 ## Database Queries
 
-All queries are handled through Thymeleaf's templates.
+All queries are handled through Spring Boot JPA (CRUD repositories) and Thymeleaf's templates.
 
 License
 ----
