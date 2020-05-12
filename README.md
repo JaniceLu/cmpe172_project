@@ -103,8 +103,10 @@ Navigate to the folder that you cloned the project into then run this command:
 - Go to MySQL Workbench and import an appropriately formatted CSV file for each table
 
 ## Sequence Diagram
+<img src= "https://github.com/JaniceLu/cmpe172_project/blob/master/resources/SequenceDiagram.png"/>
 
 ## Database Schema
+<img src= "https://github.com/JaniceLu/cmpe172_project/blob/master/resources/Schema.png"/>
 
 ## Database Queries
 
